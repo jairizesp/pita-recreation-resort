@@ -1,0 +1,174 @@
+.ion-android-star{
+    font-size:20px;
+    color:#ffbf00;
+   } 
+
+  .summary_title{
+    font-weight:bold;
+    font-size:25px;
+  }
+  .menu_filter{
+    background:#fbf7f5;
+    box-shadow:3px 3px 3px 3px;
+  }
+  .button-18{
+   margin:5px;
+  }
+  .filter_title{
+    color:black;
+    font-weight:bold;
+  }
+
+
+/*footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color:red;
+   color: white;
+   text-align: center;
+}*/
+
+.summaryselect{
+  font-size:20px;
+
+}
+.book_div{
+  padding:5px;
+  color:black;
+  background:white;
+}
+.book_div_total{
+  padding:5px;
+  color:white;
+  background:black;
+}
+
+.book_div_next{
+  margin-top:5px;
+  padding:5px;
+  font-weight:bold;
+  color:white;
+  background: #964444;
+}
+
+    .booking_summary{
+    background:#CCCCCC;
+  }
+
+.summaryselect{
+  font-size:20px;
+}
+.book_div{
+  padding:5px;
+  color:black;
+  background:white;
+}
+.book_div_total{
+  padding:5px;
+  color:white;
+  background:black;
+}
+
+.book_div_next{
+  margin-top:5px;
+  padding:5px;
+  font-weight:bold;
+  color:white;
+  background: #C50A0D;
+}
+/*STEPS TEMPALTE*/
+.stepper-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+/*  @media (max-width: 768px) {
+    font-size: 12px;
+  }*/
+}
+.active-counter{
+      border:5px solid  #ff6e00;
+}
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-bottom: 6px;
+}
+
+.stepper-item.active {
+  font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: #4bb543;
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #4bb543;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+
+.guest_info{
+
+  background: #ebebeb;
+}
+
+.formdetails{
+  font-size:18px;
+}
+
+.qr_code{
+  color:white;
+  width:100%;
+  background:#23272a;
+}
+
