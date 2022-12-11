@@ -72,12 +72,16 @@
         $row = $result->fetch_assoc();
         $imgurl=$row['img_path'];  
          ?>
-    <div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../admin/uploads/<?php echo $imgurl; ?>); border-radius: 0px; background-position: center; background-size: cover; height: 100vh; min-height: 140px;">
-    <?php } ?>
-        <div class="container p-5">
+         <center class="p-3 mb-2 bg-dark text-white">
+    <div class="container">
+    <div class="container p-5">
+      <div class="row flex-fill" >
+      <div class="col">
+      <?php } ?>
+        
             <br><br><br><br><br>
-        <center>
-        <h2 class="heading center p-2">            
+        
+        <h2 class="heading center p-2" >            
           <?php
             $sql75 = "SELECT * FROM informations WHERE id='5'";
             $result75 = $con->query($sql75);
@@ -90,7 +94,7 @@
             }
             ?>
             </h2>
-        <h3 class="sub-heading center" style="text-align: justify;">
+        <h3 class="sub-heading center" >
         <?php
             $sql76 = "SELECT * FROM informations WHERE id='5'";
             $result76 = $con->query($sql76);
@@ -104,10 +108,14 @@
             ?>
 
         </h3>
-        </center>
+          </div>
+        <div class="col">
+    <div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../admin/uploads/<?php echo $imgurl; ?>); border-radius: 0px; background-position: center; background-size: cover; height: 100vh; min-height: 140px;">
+  </div>
         </div>
     </div>
-
+          </div>
+          </center>
 <footer class="section footer-section">
       <div class="container">
         <div class="row mb-4">

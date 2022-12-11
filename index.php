@@ -156,11 +156,11 @@ font-weight: bold;
          
         <a class="navlogo" href="index.php"><img src="admin/uploads/<?php echo $imgurl; ?>" height="90px" width="auto"></a>
         <?php }?></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler" data-target="#navbarSupportedContent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse show" id="navbarNav" style>
+      <div class="collapse navbar-collapse show" id="navbarSupportedContent">
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -595,7 +595,7 @@ font-weight: bold;
       </div>
       <div class="row">
  <?php              
-            $select_carousel ="SELECT * FROM img_info where image_type='Footer Image' AND status='Active'ORDER BY RAND() limit 3";
+            $select_carousel ="SELECT * FROM img_info where image_type='Footer Image' AND status='Active'";
            $result = $con->query($select_carousel);
            if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){

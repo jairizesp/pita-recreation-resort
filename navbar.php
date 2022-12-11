@@ -54,11 +54,17 @@ font-weight: bold;
         });
     });
 </script>
-
-
-
+<style>
+#logo{
+    position:absolute;
+    
+    left:120px;
+  
+    overflow:hidden;
+}
+</style>
 <!-- Navbar  -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3" style="background-color: #40367c;">
       <div class="container">
         <?php
  $select_bg ="SELECT * FROM img_info where image_type='Logo' AND status='Active'";
@@ -67,7 +73,7 @@ font-weight: bold;
         $row = $result->fetch_assoc();
         $imgurl=$row['img_path'];  
          ?>
-        <a class="navlogo" href="../index.php"><img src="../admin/uploads/<?php echo $imgurl; ?>" height="90px" width="auto"></a>
+        <a class="navlogo" id="logo" href="../index.php"><img src="../admin/uploads/<?php echo $imgurl; ?>"  height="90px" width="auto"></a>
         <?php }?>
          <button
           class="navbar-toggler"

@@ -51,9 +51,43 @@
             height: 100vh;
             
         }
-        
+        h2 {
+    font-family: Arial, Verdana;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #091f2f;
+    text-transform: uppercase;
+}
+.accordion-section .panel-default > .panel-heading {
+    border: 0;
+    background: #f4f4f4;
+    padding: 0;
+}
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-size: 3rem;
+    content: "\f106";
+    color: #1f7de2;
+    float: right;
+    margin-top: -12px;
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "\f107";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: 1.2rem;
+}
         
     </style>
+
+
+
     <link href='https://fonts.googleapis.com/css?family=Almendra SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Aref Ruqaa Ink' rel='stylesheet'>
     <body>
@@ -90,7 +124,8 @@
     <?php
         include "../navbar.php";
     ?>
-    <div class="jumbotron" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../pictures/reserve.jpg); border-radius: 0px; background-size: cover; height: 100vh; max-height: 140px;">
+    <div class="jumbotron" >
+      
         <div class="container ">
         <center>
 
@@ -100,7 +135,7 @@
         <h4 style="font-size:40px;color:black;font-weight:bold;align-text:center;text-align:center;">            
  FREQUENTLY ASK QUESTIONS
 </h4>
-<section class="section visit-section m-5" >
+<!-- <section class="section visit-section m-5" >
   <div class="row">
     <?php
 $select_faq="SELECT * FROM faqs";
@@ -117,6 +152,51 @@ $select_faq="SELECT * FROM faqs";
     </div>
   <?php }} ?>
   </div> 
+</section> -->
+<script>
+$(".panel").on("click", function(e){
+              var $_target =  $(e.currentTarget);
+              var $_panelBody = $_target.find(".panel-collapse");
+              if($_panelBody){
+                $_panelBody.collapse('toggle')
+              }
+        })
+
+</script>
+
+
+<section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+  <div class="container">
+  <?php
+$select_faq="SELECT * FROM faqs";
+    $result = $con->query($select_faq);
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+     ?>
+	  
+	  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+		  <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+			<h3 class="panel-title">
+			  <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $row['id'] ?>" aria-expanded="true" aria-controls="#">
+				<?php echo $row['Question'] ?>
+			  </a>
+			</h3>
+		  </div>
+		  <div id="<?php echo $row['id'] ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+			<div class="panel-body px-3 mb-4">
+      <?php echo $row['Response'] ?>
+			</div>
+		  </div>
+		</div>
+    
+		
+	
+		</div>
+    <?php }} ?>
+	  </div>
+  
+  </div>
 </section>
  
 <center>

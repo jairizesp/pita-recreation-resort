@@ -96,14 +96,14 @@ $con->close;
                              <div class="error-text" style="color:blue"></div>
                             <div class="row">
                                 <div class="col-md-6">
-                                <input type="text" name="fname" placeholder="First name" class="form-control m-1">
-                                <input type="text" name="mobilenum" placeholder="Mobile number" class="form-control m-1">
-                                 <input type="password" name="password" placeholder="Create password" class="form-control m-1" onkeyup="active()"  id="pswrd_1">
+                                <input tabindex="1" type="text" name="fname" placeholder="First name" class="form-control m-1">
+                                <input tabindex="3" type="text" name="mobilenum" placeholder="Mobile number" class="form-control m-1">
+                                 <input tabindex="5" type="password" name="password" placeholder="Create password" class="form-control m-1" onkeyup="active()"  id="pswrd_1">
                                 </div>
                                 <div class="col-md-6">
-                                      <input type="text" name="lname" placeholder="Last name" class="form-control m-1">
-                                      <input type="email" name="email" id='email' placeholder="Email" class="form-control m-1">
-                                      <input type="password" placeholder="Confirm password" class="form-control m-1" onkeyup="matching()"  id="pswrd_2">
+                                      <input tabindex="2" type="text" name="lname" placeholder="Last name" class="form-control m-1">
+                                      <input tabindex="4" type="email" name="email" id='email' placeholder="Email" class="form-control m-1">
+                                      <input tabindex="6" type="password" placeholder="Confirm password" class="form-control m-1" onkeyup="matching()"  id="pswrd_2">
 
                                 </div>
                                
@@ -124,36 +124,24 @@ $con->close;
                 </div>
             </div>    
         </div>
-        <!-- The Modal -->
-<div class="modal fade" id="terms">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Terms and Conditions</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-    <!-- TYPE SAMPLE TERMS AND CONDITIONS HERE -->
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+       
 
     </div>
   </div>
 </div>
         <br><br>
+        <style>
+.swal2-modal {
+  text-align: center;
+}
+</style>
     </body>
+    
 </html>
+
 <script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script type="text/javascript">
 let user_status =document.querySelector('#usernameStatus');
 var button = document.getElementById("#register");
@@ -175,7 +163,7 @@ var button = document.getElementById("#register");
  }
     $(document).on('input','#email',function(e){
     let usernameInput = $('#email').val();
-    let msg;
+    let         ;
     if(usernameInput.length==0){
       msg="<span style='color:red'>Enter Email</span>";
       document.getElementById("register").disabled = true;
@@ -189,6 +177,7 @@ var button = document.getElementById("#register");
       //msg="<span style='color:red'>Email must be between 5-20</span>";
     }else{
       usernameAvailability(usernameInput);
+      document.getElementById("register").disabled = true;
     }
     $('#usernameStatus').html(msg);
 });
@@ -225,6 +214,7 @@ function matching(){
   }
     $('#usernameStatus').html(msg2);
 }
+
 $(document).ready(function() {
 $('form #register').click(function(e) {
 let $form = $(this).closest('form');
@@ -243,8 +233,18 @@ Swal.fire({
   input: 'checkbox',
   inputValue: 0,
   inputPlaceholder:
-    'I agree with the terms and conditions ',
-    text: "General Terms By accessing and placing an order with , you confirm that you are in agreement with and bound by the terms of service contained in the Terms & Conditions outlined below. These terms apply to the entire website and any email or other type of communication between you and .Under no circumstances shall team be liable for any direct, indirect, special, incidental or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if team or an authorized representative has been advised of the possibility of such damages. If your use of materials from this site results in the need for servicing, repair or correction of equipment or data, you assume any costs thereof will not be responsible for any outcome that may occur during the course of usage of our resources. We reserve the rights to change prices and revise the resources usage policy in any moment. ",
+    'I agree with the terms and conditions',
+    html: '<p style="text-align: justify;"><?php
+            $sql76 = "SELECT * FROM informations WHERE id='7'";
+            $result76 = $con->query($sql76);
+
+            if ($result76->num_rows > 0) { 
+
+              while ($row76 = $result76->fetch_assoc()) {
+                   echo $row76['description'];   
+              }
+            }
+            ?></p>',
   confirmButtonText:
     'Continue <i class="fa fa-arrow-right"></i>',
   inputValidator: (result) => {

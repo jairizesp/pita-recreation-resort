@@ -32,7 +32,8 @@
     }elseif(isset($_POST['editfee'])){
         $adults_fee=$_POST['adults_fee'];
         $kids_fee=$_POST['kids_fee'];
-        $sql_update="UPDATE rate_fee set adult_rate='$adults_fee',kids_rate='$kids_fee'";
+        $night_fee=$_POST['night_fee'];
+        $sql_update="UPDATE rate_fee set adult_rate='$adults_fee',kids_rate='$kids_fee',night_rate='$night_fee'";
          if($result =$con->query($sql_update)===TRUE){
 
      }else{
@@ -394,6 +395,8 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Adults Fee</th>
                                             <th scope="col">Kids Fee</th>
+                                            <th scope="col">Night Rate</th>
+                                            <th scope="col">Overnight Rate</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
@@ -409,6 +412,8 @@
                                           <th scope="row"><?php echo $row['id']?></th>
                                             <td><?php echo $row['adult_rate']?></td>
                                             <td><?php echo $row['kids_rate']?></td>
+                                            <td><?php echo $row['night_rate']?></td>
+                                            <td><?php echo $row['night_rate']?></td>
                                             <td>  <button type="button" class="btn btn-warning btn-icon-split" onclick="ratefee(<?php echo $row['id']?>)"><span class="text">Edit Rate</span></button></td>
                                         </tr>
 
@@ -430,6 +435,14 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1"><h6>Kids Fee</h6></label>
                                     <input class="form-control auth-input w-100 p-2" type="text" id="roomname" name="kids_fee" placeholder="Input Question" value="<?php echo $row['kids_rate'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"><h6>Night Rate</h6></label>
+                                    <input class="form-control auth-input w-100 p-2" type="text" id="roomname" name="night_fee" placeholder="Input Question" value="<?php echo $row['night_rate'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"><h6>Overnight Rate</h6></label>
+                                    <input class="form-control auth-input w-100 p-2" type="text" id="roomname" name="night_fee" placeholder="Input Question" value="<?php echo $row['night_rate'] ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
